@@ -1,3 +1,21 @@
+// ============= MOBILE MENU TOGGLE ============= 
+const menuBtn = document.getElementById('menuBtn');
+const navbar = document.querySelector('.navbar');
+const menuIcon = menuBtn ? menuBtn.querySelector('i') : null;
+
+menuBtn?.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    if (menuIcon) {
+        if (navbar.classList.contains('active')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    }
+});
+
 // ============= NAVIGATION ACTIVE LINK ============= 
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -8,6 +26,15 @@ document.querySelectorAll('.nav-link').forEach(link => {
         
         // Add active class to clicked link
         this.classList.add('active');
+        
+        // Close mobile menu if open
+        if (navbar && navbar.classList.contains('active')) {
+            navbar.classList.remove('active');
+            if (menuIcon) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
         
         // Scroll to section
         const targetId = this.getAttribute('href').substring(1);
@@ -36,14 +63,6 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-});
-
-// ============= MOBILE MENU TOGGLE ============= 
-const menuBtn = document.getElementById('menuBtn');
-const navbar = document.querySelector('.navbar');
-
-menuBtn?.addEventListener('click', () => {
-    navbar.style.display = navbar.style.display === 'flex' ? 'none' : 'flex';
 });
 
 // ============= SKILL BARS ANIMATION ============= 
