@@ -286,15 +286,15 @@ body {
     object-fit: cover;
     border-radius: 20px;
     border: 3px solid var(--primary-color);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
-                0 0 30px rgba(15, 239, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(15, 239, 255, 0.4);
     transition: var(--transition);
 }
 
 .profile-img:hover {
     transform: scale(1.05) rotate(2deg);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6),
-                0 0 40px rgba(15, 239, 255, 0.6);
+        0 0 40px rgba(15, 239, 255, 0.6);
 }
 
 /* ============= ABOUT SECTION ============= */
@@ -745,6 +745,7 @@ body {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -755,6 +756,7 @@ body {
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -766,6 +768,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -777,6 +780,7 @@ body {
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -788,6 +792,7 @@ body {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -799,6 +804,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -806,18 +812,24 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
 }
 
 @keyframes glow {
-    0%, 100% {
+
+    0%,
+    100% {
         filter: drop-shadow(0 0 5px rgba(15, 239, 255, 0.5));
     }
+
     50% {
         filter: drop-shadow(0 0 20px rgba(15, 239, 255, 0.8));
     }
@@ -858,15 +870,48 @@ body {
     }
 
     .navbar {
-        gap: 1.5rem;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(13, 17, 23, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        border-left: 1px solid rgba(15, 239, 255, 0.1);
+        display: flex;
+        gap: 2rem;
+        transition: right 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    .navbar.active {
+        right: 0;
+        animation: none;
+        display: flex !important;
     }
 
     .navbar a {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .menu-btn {
         display: block;
+        z-index: 1001;
+        /* Stay above the side menu */
+        position: relative;
+        padding: 0.5rem;
     }
 
     .section-header h2 {
@@ -906,8 +951,9 @@ body {
 .text-neon {
     color: #0ef;
 }
+
 .color {
-     color: #0ef;
+    color: #0ef;
 }
 
 .home-content p {
@@ -986,7 +1032,15 @@ body {
 }
 
 /* Global transitions (kept for smoothness) */
-a, .btn, .home-img .glowing-circle, .about-img .glowing-circle, .home-img img, .about-img img, .social-media a, .navbar a, .logo {
+a,
+.btn,
+.home-img .glowing-circle,
+.about-img .glowing-circle,
+.home-img img,
+.about-img img,
+.social-media a,
+.navbar a,
+.logo {
     transition: transform .3s ease, box-shadow .3s ease, color .2s ease, background .2s ease;
 }
 
@@ -998,20 +1052,43 @@ a, .btn, .home-img .glowing-circle, .about-img .glowing-circle, .home-img img, .
 
 /* Animations */
 @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes neonPulse {
-    0% { box-shadow: 0 0 8px rgba(14,239,255,0.06); }
-    50% { box-shadow: 0 0 28px rgba(14,239,255,0.10); }
-    100% { box-shadow: 0 0 8px rgba(14,239,255,0.06); }
+    0% {
+        box-shadow: 0 0 8px rgba(14, 239, 255, 0.06);
+    }
+
+    50% {
+        box-shadow: 0 0 28px rgba(14, 239, 255, 0.10);
+    }
+
+    100% {
+        box-shadow: 0 0 8px rgba(14, 239, 255, 0.06);
+    }
 }
 
 /* Apply entrance animations and subtle floats across the site */
@@ -1030,7 +1107,8 @@ a, .btn, .home-img .glowing-circle, .about-img .glowing-circle, .home-img img, .
 .about {
     opacity: 0;
     animation: fadeUp 1.6s ease .12s forwards;
-    margin-top: 200px; /* pushed further down */
+    margin-top: 200px;
+    /* pushed further down */
 }
 
 .about-img .glowing-circle {
@@ -1045,7 +1123,7 @@ a, .btn, .home-img .glowing-circle, .about-img .glowing-circle, .home-img img, .
 /* Hover effect specifically for the About section button */
 .about-content .btn:hover {
     transform: translateY(-6px) scale(1.06);
-    box-shadow: 0 12px 40px rgba(14,239,255,0.25);
+    box-shadow: 0 12px 40px rgba(14, 239, 255, 0.25);
     background: linear-gradient(90deg, #0ef, #8a00ff);
     color: #fff;
 }
@@ -1062,14 +1140,15 @@ a, .btn, .home-img .glowing-circle, .about-img .glowing-circle, .home-img img, .
 }
 
 /* Keep interactive hover for navbar, buttons and social icons but remove picture hover specifically */
-.navbar a:hover, .navbar a.active {
+.navbar a:hover,
+.navbar a.active {
     color: #0ef;
     transform: translateY(-3px);
 }
 
 .btn:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(14,239,255,0.12);
+    box-shadow: 0 8px 20px rgba(14, 239, 255, 0.12);
 }
 
 .social-media a:hover {
@@ -1078,64 +1157,112 @@ a, .btn, .home-img .glowing-circle, .about-img .glowing-circle, .home-img img, .
 
 /* Slide-in and staggered header/home animations (directional entrances) */
 @keyframes slideFromBottom {
-    0% { opacity: 0; transform: translateY(36px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(36px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideFromTop {
-    0% { opacity: 0; transform: translateY(-36px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(-36px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideFromRight {
-    0% { opacity: 0; transform: translateX(60px); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes slideFromLeft {
-    0% { opacity: 0; transform: translateX(-60px); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Header links: enter one-by-one from bottom */
 .navbar a {
     opacity: 0;
     transform: translateY(36px);
-    animation: slideFromBottom 1s cubic-bezier(.2,.9,.2,1) forwards;
+    animation: slideFromBottom 1s cubic-bezier(.2, .9, .2, 1) forwards;
 }
-.navbar a:nth-child(1) { animation-delay: .08s; }
-.navbar a:nth-child(2) { animation-delay: .16s; }
-.navbar a:nth-child(3) { animation-delay: .24s; }
-.navbar a:nth-child(4) { animation-delay: .32s; }
-.navbar a:nth-child(5) { animation-delay: .40s; }
-.navbar a:nth-child(6) { animation-delay: .48s; }
+
+.navbar a:nth-child(1) {
+    animation-delay: .08s;
+}
+
+.navbar a:nth-child(2) {
+    animation-delay: .16s;
+}
+
+.navbar a:nth-child(3) {
+    animation-delay: .24s;
+}
+
+.navbar a:nth-child(4) {
+    animation-delay: .32s;
+}
+
+.navbar a:nth-child(5) {
+    animation-delay: .40s;
+}
+
+.navbar a:nth-child(6) {
+    animation-delay: .48s;
+}
 
 /* Home headings and elements with directional entrances */
 /* "Hello, It's Me" comes from top */
 .home-content h3:nth-of-type(1) {
     opacity: 0;
     transform: translateY(-36px);
-    animation: slideFromTop 1s cubic-bezier(.2,.9,.2,1) .14s forwards;
+    animation: slideFromTop 1s cubic-bezier(.2, .9, .2, 1) .14s forwards;
 }
 
 /* Name (H1) and image: name slides from right, image also enters from right */
 .home-content h1 {
     opacity: 0;
     transform: translateX(60px);
-    animation: slideFromRight 1.2s cubic-bezier(.2,.9,.2,1) .28s forwards;
+    animation: slideFromRight 1.2s cubic-bezier(.2, .9, .2, 1) .28s forwards;
 }
+
 .home-img .glowing-circle {
     opacity: 0;
     transform: translateX(60px);
-    animation: slideFromRight 1.4s cubic-bezier(.2,.9,.2,1) .22s forwards, float 8s ease-in-out 2s infinite, neonPulse 6s ease-in-out 2s infinite;
+    animation: slideFromRight 1.4s cubic-bezier(.2, .9, .2, 1) .22s forwards, float 8s ease-in-out 2s infinite, neonPulse 6s ease-in-out 2s infinite;
 }
 
 /* The second h3 and paragraph (role/description) slide in from left */
 .home-content h3:nth-of-type(2) {
     opacity: 0;
     transform: translateX(-48px);
-    animation: slideFromLeft 1.2s cubic-bezier(.2,.9,.2,1) .40s forwards;
+    animation: slideFromLeft 1.2s cubic-bezier(.2, .9, .2, 1) .40s forwards;
 }
+
 .home-content p {
     opacity: 0;
     transform: translateX(-60px);
@@ -1148,12 +1275,9 @@ a, .btn, .home-img .glowing-circle, .about-img .glowing-circle, .home-img img, .
     transform: translateX(-40px);
     animation: slideFromLeft 1.2s ease .68s forwards;
 }
+
 .home-content .btn {
     opacity: 0;
     transform: translateX(-60px);
     animation: slideFromLeft 1.2s ease .84s forwards;
 }
-
-
-
-
