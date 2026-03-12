@@ -1280,4 +1280,5 @@ a,
     opacity: 0;
     transform: translateX(-60px);
     animation: slideFromLeft 1.2s ease .84s forwards;
+    
 }

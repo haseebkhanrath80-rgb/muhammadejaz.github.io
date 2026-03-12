@@ -272,4 +272,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
 console.log('🎓 Muhammad Ejaz Portfolio loaded successfully!');
+
